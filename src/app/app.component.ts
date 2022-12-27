@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Inject, Component, LOCALE_ID } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +6,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'native-i18n';
+  title: String = $localize`:@@title:native-i18n`;
+  locales = [
+    { code: 'en-US', name: 'English' },
+    { code: 'ar', name: 'عربي (Arabic)' },
+  ];
+
+  constructor(@Inject(LOCALE_ID) public activeLocale: string = 'en-US') {}
+
+  onChange() {
+    window.location.href = `/${this.activeLocale}`;
+  }
 }
