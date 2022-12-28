@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,22 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'native-i18n';
+  
+  title!: String;
+  constructor(public translate: TranslateService) {
+    translate.addLangs(['en-US', 'ar'])
+    translate.setDefaultLang('en-US');
+    translate.use('en-US');
+    translate.get('project-name').subscribe((projectName: string) => {
+        this.title = projectName;
+    });
+  }
+
+  change(val: any){
+    this.translate.use(val)
+    this.translate.get('project-name').subscribe((projectName: string) => {
+      this.title = projectName;
+    });
+  }
+  
 }
