@@ -9,6 +9,7 @@ export class AppComponent {
   title: String = $localize`:@@title:native-i18n`;
   locales = [
     { code: 'en-US', name: 'English' },
+    { code: 'fr', name: 'French' },
     { code: 'ar', name: 'عربي (Arabic)' },
   ];
 

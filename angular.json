@@ -18,6 +18,9 @@
         "locales": {
           "ar": {
             "translation": "src/locale/messages.ar.xlf"
+          },
+          "fr": {
+            "translation": "src/locale/messages.fr.xlf"
           }
         }
       },
