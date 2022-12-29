@@ -10,7 +10,7 @@ export class AppComponent {
   
   title!: String;
   constructor(public translate: TranslateService) {
-    translate.addLangs(['en-US', 'ar'])
+    translate.addLangs(['en-US', 'ar', 'fr'])
     translate.setDefaultLang('en-US');
     translate.use('en-US');
     translate.get('project-name').subscribe((projectName: string) => {
